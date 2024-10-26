@@ -2,7 +2,7 @@
 
 <div>
   <button (click)="onSelectUser()"> <!-- Event Binding to handle events of the User Component || Surrounded by parentheses () -->
-    <img [src]="imagePath" [alt]="selectedUser.name" /> <!-- Property Binding to display information [Avatar of the user] of the User Component || Attributes are surrounded by square brackets [] -->
-    <span>{{ selectedUser.name }}</span> <!-- Interpolation to display information [Name of the user] from the User Component || Surrounded by double curly braces {{}} -->
+    <img [src]="imagePath()" [alt]="selectedUser().name" /> <!-- Property Binding to display information [Avatar of the user] of the User Component || Attributes are surrounded by square brackets [] -->
+    <span>{{ selectedUser().name }}</span> <!-- Interpolation to display information [Name of the user] from the User Component || Surrounded by double curly braces {{}} -->
   </button>
 </div>
