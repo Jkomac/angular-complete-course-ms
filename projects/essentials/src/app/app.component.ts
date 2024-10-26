@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
-//import { DUMMY_USERS } from './dummy-users';
+import { DUMMY_USERS } from './dummy-users';
 
 @Component({
   selector: 'app-root', // Selector to use the component in HTML file
@@ -12,5 +12,5 @@ import { UserComponent } from './user/user.component';
   styleUrl: './app.component.css' // Path to the CSS file to be applied || CSS code can be written here (inline style) by using `styles` instead of `styleUrl`
 })
 export class AppComponent {
-  //users = DUMMY_USERS;
+  users = DUMMY_USERS;
 }
