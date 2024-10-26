@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length); // Generating a random index to select a random user from the list of dummy users || Math.random() = [0.0, 1.0) || Math.floor() rounds down to the nearest integer
