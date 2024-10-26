@@ -1,7 +1,4 @@
-import { Component, Input } from '@angular/core'; // Note: 'Input' starts with an uppercase 'I'
-import { DUMMY_USERS } from '../dummy-users';
-
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length); // Generating a random index to select a random user from the list of dummy users || Math.random() = [0.0, 1.0) || Math.floor() rounds down to the nearest integer
+import { Component, input, computed } from '@angular/core'; // Note: 'input' starts with a lowercase 'i'
 
 @Component({
   selector: 'app-user',
@@ -11,15 +8,13 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length); // Generatin
 })
 
 export class UserComponent {
-  // Input decorator to allow the parent component to pass data to this component
-  @Input({ required: true }) avatar!: string; // Marked as required to ensure the parent component provides a value || Non-null assertion operator (!) is used to tell TypeScript that the variable will be initialized later
-  @Input({ required: true }) name!: string;
+  
+  // ¡¡Input() signals are read-only in the child component, so values can not be changed in the child component!!
+  avatar = input.required<string>(); // The input() function is used to create a signal for the user's avatar  || .required() ensures it must be provided by the parent component || The angle brackets <> specify the expected type
+  name = input.required<string>();
+ 
+  imagePath = computed(() => 'assets/users/' + this.avatar());
 
-  // Getter to dynamically return the path of the image of the users
-  get imagePath() {
-   return 'assets/users/' + this.avatar;
-  }
-
-  // Method to be called when a user is selected
-  onSelectUser() {}
- }
+   // Method to be called when a user is selected
+   onSelectUser() {}
+}
