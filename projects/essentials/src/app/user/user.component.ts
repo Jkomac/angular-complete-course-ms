@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'; // Note: 'Input' starts with an uppercase 'I'
+import { Component, EventEmitter, Input, output } from '@angular/core'; // Note: 'Input' starts with an uppercase 'I' & 'output' starts with a lowercase 'o'
 
 @Component({
   selector: 'app-user',
@@ -13,8 +13,8 @@ export class UserComponent {
   @Input({ required: true }) avatar!: string; 
   @Input({ required: true }) name!: string;
 
-  // Output decorator to allow this component to pass data to the parent component through events
-  @Output() select = new EventEmitter();
+  // ¡¡ output() function does NOT create a signal unlike the input() function. Instead, it just creates an event like an EventEmitter !!
+  select = output<string>(); // The output() function is used to create an event emitter (created automatically) || The angle brackets <> are used to specify the type of data to be emitted
 
   // Getter to dynamically return the path of the image of the users
   get imagePath() {
