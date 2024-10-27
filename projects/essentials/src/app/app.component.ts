@@ -13,4 +13,9 @@ import { DUMMY_USERS } from './dummy-users';
 })
 export class AppComponent {
   users = DUMMY_USERS;
+
+  // Method to be called when a user is selected
+  onSelectUser(id: string) {
+    console.log('Selected user with id ' + id);
+  }
 }

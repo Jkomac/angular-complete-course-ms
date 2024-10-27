@@ -1,20 +1,43 @@
 <!-- Template that will be rendered in the browser -->
 
-<app-header /> <!-- Custom Header Component by Jose (header.component.ts) -->
+<app-header />
+<!-- Custom Header Component by Jose (header.component.ts) -->
 
 <main>
-    <ul id="users">
-        <li>
-            <app-user [avatar]="users[0].avatar" [name]="users[0].name" /> <!-- Custom User Component by Jose (user.component.ts) || Property Binding to set the information as a dynamic value -->
-        </li>
-        <li>
-            <app-user [avatar]="users[1].avatar" [name]="users[1].name" />
-        </li>
-        <li>
-            <app-user [avatar]="users[2].avatar" [name]="users[2].name"  />
-        </li>
-        <li>
-            <app-user [avatar]="users[3].avatar" [name]="users[3].name" />
-        </li>
-    </ul>
+  <ul id="users">
+    <li>
+      <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
+      <app-user
+        [id]="users[0].id"
+        [avatar]="users[0].avatar"
+        [name]="users[0].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    <li>
+      <app-user
+        [id]="users[1].id"
+        [avatar]="users[1].avatar"
+        [name]="users[1].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    <li>
+      <app-user
+        [id]="users[2].id"
+        [avatar]="users[2].avatar"
+        [name]="users[2].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+    <li>
+      <app-user
+        [id]="users[3].id"
+        [avatar]="users[3].avatar"
+        [name]="users[3].name"
+        (select)="onSelectUser($event)"
+      />
+    </li>
+  </ul>
+  TASKS OF THAT USER
 </main>
