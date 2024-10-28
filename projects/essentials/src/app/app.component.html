@@ -1,7 +1,6 @@
 <!-- Template that will be rendered in the browser -->
 
-<app-header />
-<!-- Custom Header Component by Jose (header.component.ts) -->
+<app-header /> <!-- Custom Header Component by Jose (header.component.ts) -->
 
 <main>
   <ul id="users">
@@ -39,5 +38,5 @@
       />
     </li>
   </ul>
-  TASKS OF THAT USER
+  <app-tasks [name]="selectedUser.name" />
 </main>
