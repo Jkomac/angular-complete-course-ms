@@ -4,18 +4,16 @@
 
 <main>
   <ul id="users">
-    <!-- Loop through the users array and display each user in the list. @for ("element" of "arrayList"; track "primaryKey"). The name of the "element" is up to me -->
-    @for (user of users; track user.id) {
-      <li>
-        <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
-        <app-user [user]="user" (select)="onSelectUser($event)" />
-      </li>
-    }
+    <!-- *ngFor is a Structural Directive in the tag that will be repeated to loop through the users array and display each user. *ngFor="let 'element' of 'arrayList'"-->
+    <li *ngFor="let user of users">
+      <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
+      <app-user [user]="user" (select)="onSelectUser($event)" />
+    </li>
   </ul>
 
-  @if (selectedUser) {
-    <app-tasks [name]="selectedUser.name" />
-  } @else {
+  <!-- *ngIf is a Structural Directive in the tag that will be rendered if the condition is true. *ngIf="'condition' (; else 'identifier')" + action to be taken if the condition is true -->
+  <app-tasks *ngIf="selectedUser; else fallback" [name]="selectedUser!.name" />
+  <ng-template #fallback> <!-- If the *ngIf condition is false, this block will be rendered since the ng-template has the else identifier -->
     <p id="fallback">Select a user to see their tasks!</p>
-  }
+  </ng-template>
 </main>
