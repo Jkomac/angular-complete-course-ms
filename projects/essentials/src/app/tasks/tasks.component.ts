@@ -9,5 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class TasksComponent {
 
-  @Input({ required: true}) name!: string;
+  @Input() name?: string; // Optional Property (?) is used to make the property optional. If the property is not provided, it will be undefined.
+  // @Input() name: string | undefined; // Union Type (|) is used to define multiple types for a property.
 }

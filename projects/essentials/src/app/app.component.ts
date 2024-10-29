@@ -14,11 +14,11 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId = this.users[0].id;
+  selectedUserId?: string;
 
   // Getter to get the selected user by ID
   get selectedUser(){
-    return this.users.find(user => user.id === this.selectedUserId)!;
+    return this.users.find(user => user.id === this.selectedUserId);
   }
 
   // Method to be called when a user is selected to get the user ID

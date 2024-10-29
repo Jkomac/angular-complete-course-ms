@@ -4,39 +4,18 @@
 
 <main>
   <ul id="users">
-    <li>
-      <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
-      <app-user
-        [id]="users[0].id"
-        [avatar]="users[0].avatar"
-        [name]="users[0].name"
-        (select)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [id]="users[1].id"
-        [avatar]="users[1].avatar"
-        [name]="users[1].name"
-        (select)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [id]="users[2].id"
-        [avatar]="users[2].avatar"
-        [name]="users[2].name"
-        (select)="onSelectUser($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [id]="users[3].id"
-        [avatar]="users[3].avatar"
-        [name]="users[3].name"
-        (select)="onSelectUser($event)"
-      />
-    </li>
+    <!-- Loop through the users array and display each user in the list. @for ("element" of "arrayList"; track "primaryKey"). The name of the "element" is up to me -->
+    @for (user of users; track user.id) {
+      <li>
+        <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
+        <app-user [user]="user" (select)="onSelectUser($event)" />
+      </li>
+    }
   </ul>
-  <app-tasks [name]="selectedUser.name" />
+
+  @if (selectedUser) {
+    <app-tasks [name]="selectedUser.name" />
+  } @else {
+    <p id="fallback">Select a user to see their tasks!</p>
+  }
 </main>
