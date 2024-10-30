@@ -1,18 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'; // Note: 'Input' and 'Output' start with an uppercase 'I' and 'O'
-
-// Interfaces are used to define the structure of an OBJECT. Useful for externalizing the structure, making the code more readable and maintainable.
-interface User {
-  id: string; 
-  name: string; 
-  avatar: string;
-}; 
-
-// Type Aliases are used to define the structure of a custom type (Objects, Primitives types, Unions, Intersection, Tuples, Functions...). Useful for externalizing the structure, making the code more readable and maintainable.
-// type User = {
-//   id: string, 
-//   name: string, 
-//   avatar: string
-// }; 
+import { type User } from './user.model'; // Importing the custom User interface (from the user.model.ts). The 'type' keyword is optional and can be omitted.
 
 @Component({
   selector: 'app-user',
