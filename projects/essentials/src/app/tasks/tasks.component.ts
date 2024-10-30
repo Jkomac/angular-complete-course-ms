@@ -42,4 +42,9 @@ export class TasksComponent {
   get selectedUserTasks() {
     return this.tasks.filter(task => task.userId === this.userId); // filter() is used to return all the tasks that belong to the selected user
   }
+
+  // Method to be called when a task is completed, removing the task from the list of tasks
+  onCompleteTask(id: string) {
+    this.tasks = this.tasks.filter(task => task.id !== id);
+  }
 }
