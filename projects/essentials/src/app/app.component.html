@@ -8,7 +8,7 @@
     @for (user of users; track user.id) {
       <li>
         <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
-        <app-user [user]="user" (select)="onSelectUser($event)" />
+        <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectUser($event)" />
       </li>
     }
   </ul>

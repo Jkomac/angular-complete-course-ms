@@ -11,6 +11,7 @@ import { type User } from './user.model'; // Importing the custom User interface
 export class UserComponent {
   // Input decorator to allow the parent component to pass data to this component || Required to ensure the parent component provides a value || Non-null Assertion (!) is used to tell TypeScript that the variable will be initialized later
   @Input({ required: true}) user!: User;
+  @Input({required: true}) selected!: boolean; // Required property to indicate whether the user is selected or not
 
   // Output decorator to allow this component to pass data to the parent component through events
   @Output() select = new EventEmitter<string>(); // Angle brackets are used as an extra layer of security (optionals) to ensure that the EventEmitter is of type string
