@@ -14,7 +14,8 @@ import { TasksComponent } from "./tasks/tasks.component";
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId?: string;
+  selectedUserId?: string; // Optional Property (?) is used to make the property optional. If the property is not provided, it will be undefined.
+  // selectedUserId: string | undefined; // Union Type (|) is used to define multiple types for a property.
 
   // Getter to get the selected user by ID
   get selectedUser(){
