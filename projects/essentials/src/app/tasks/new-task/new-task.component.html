@@ -1,7 +1,7 @@
 <div class="backdrop" (click)="onCancel()"></div> <!-- The backdrop is a semi-transparent layer that covers the entire screen, making the dialog the center of attention. -->
 <dialog open>
   <h2>Add Task</h2>
-  <form>
+  <form (ngSubmit)="onSubmit()"> <!-- The ngSubmit directive is used to listen to the submit event and call a method in the component. In this case, when the form is submitted through the Create button, the onSubmit() method is called. -->
     <p>
       <label for="title">Title</label>
       <input type="text" id="title" name="title" [(ngModel)]="enteredTitle" /> <!-- Two-Way-Binding data with the Directive ngModel to bind the input field to the component's property (Listen and Write). Surrounded by [()] -->

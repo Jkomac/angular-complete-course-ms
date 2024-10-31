@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from "./new-task/new-task.component";
+import { type NewTaskData } from './task/task.model';
 
 @Component({
   selector: 'app-tasks',
@@ -57,5 +58,17 @@ export class TasksComponent {
   // Method to cancel the process of adding a new task by hiding the form.
   onCancelAddTask() {
     this.isAddingTask = false;
+  }
+
+  // Method to add a new task to the list of tasks
+  onAddTask(taskData: NewTaskData) {
+    this.tasks.unshift({ // unshift() is a method to add a new element (task) at the beginning of the arrayList (list of tasks) || Instead, push() adds the new element at the end of the arrayList
+      id: new Date().getTime().toString(), // Example of generating a "unique" ID for the task (not the final version)
+      userId: this.userId,
+      title: taskData.title,
+      summary: taskData.summary,
+      dueDate: taskData.date,
+    });
+    this.isAddingTask = false; // Hiding the form after adding the task
   }
 }
