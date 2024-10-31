@@ -1,11 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'; // Note: 'Input' and 'Output' start with an uppercase 'I' and 'O'
-import { type User } from './user.model'; // Importing the custom User interface (from the user.model.ts). The 'type' keyword is optional and can be omitted.
+import { type User } from './user.model';
+import { CardComponent } from "../shared/card/card.component"; // Importing the custom User interface (from the user.model.ts). The 'type' keyword is optional and can be omitted.
 
 @Component({
   selector: 'app-user',
   standalone: true,
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
+  imports: [CardComponent]
 })
 
 export class UserComponent {
