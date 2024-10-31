@@ -14,8 +14,12 @@
   </ul>
 
   @if (selectedUser) {
-    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
+    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" (addTask)="onAddTask($event)"/>
   } @else {
     <p id="fallback">Select a user to see their tasks!</p>
+  }
+
+  @if (addTaskClicked) {
+    <app-new-task></app-new-task>
   }
 </main>

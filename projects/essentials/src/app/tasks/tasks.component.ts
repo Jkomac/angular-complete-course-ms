@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { TaskComponent } from './task/task.component';
 
 @Component({
@@ -11,8 +11,8 @@ import { TaskComponent } from './task/task.component';
 export class TasksComponent {
 
   @Input({ required: true}) userId!: string;
-  @Input({ required: true}) name!: string; // Optional Property (?) is used to make the property optional. If the property is not provided, it will be undefined.
-  // @Input() name: string | undefined; // Union Type (|) is used to define multiple types for a property.
+  @Input({ required: true}) name!: string;
+  @Output() addTask = new EventEmitter<boolean>();
 
   tasks = [
     {
@@ -46,5 +46,9 @@ export class TasksComponent {
   // Method to be called when a task is completed, removing the task from the list of tasks
   onCompleteTask(id: string) {
     this.tasks = this.tasks.filter(task => task.id !== id);
+  }
+
+  onAddTask() {
+    this.addTask.emit(true);
   }
 }
