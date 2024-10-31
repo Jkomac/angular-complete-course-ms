@@ -53,4 +53,9 @@ export class TasksComponent {
   onStartAddTask() {
     this.isAddingTask = true;
   }
+
+  // Method to cancel the process of adding a new task by hiding the form.
+  onCancelAddTask() {
+    this.isAddingTask = false;
+  }
 }
