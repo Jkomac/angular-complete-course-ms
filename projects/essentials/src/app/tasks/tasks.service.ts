@@ -31,6 +31,20 @@ export class TasksService {
     },
   ];
 
+  // Function that automatically executes when the application starts
+  constructor() { 
+    const tasks = localStorage.getItem('tasks'); // Retrieve the tasks from the local storage
+    
+    if (tasks) { // If tasks are found in the local storage, overwrite the default tasks with the stored tasks
+      this.tasks = JSON.parse(tasks); // JSON.parse() is used to convert the JSON string back to an object since localStorage stores data as strings
+    }
+  }
+
+  // Method to update/save the tasks in the local storage
+  private saveTasks() {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks)); // JSON.stringify() is used to convert the object to a JSON string since localStorage stores data as strings
+  }
+
   // Method to get the tasks of the selected user (Array of tasks)
   getUserTasks(userId: string) {
     return this.tasks.filter((task) => task.userId === userId); // filter() is used to return all the tasks that belong to the selected user
@@ -45,10 +59,12 @@ export class TasksService {
       summary: taskData.summary,
       dueDate: taskData.date,
     });
+    this.saveTasks();
   }
 
   // Method to remove a task from the list of tasks
   removeTask(id: string) {
     this.tasks = this.tasks.filter(task => task.id !== id);
+    this.saveTasks();
   }
 }
