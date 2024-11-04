@@ -1,0 +1,21 @@
+<!-- Template that will be rendered in the browser -->
+
+<app-header /> <!-- Custom Header Component by Jose (header.component.ts) -->
+
+<main>
+  <ul id="users">
+    <!-- Loop through the users array and display each user in the list. @for ("element" of "arrayList"; track "primaryKey"). The name of the "element" is up to me -->
+    @for (user of users; track user.id) {
+      <li>
+        <!-- Custom User Component by Jose (user.component.ts) || Property Binding [] to set the information as a dynamic value || $event is a special Angular variable that holds the value of the event that was emitted -->
+        <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="onSelectUser($event)" />
+      </li>
+    }
+  </ul>
+
+  @if (selectedUser) {
+    <app-tasks [userId]="selectedUser.id" [name]="selectedUser.name" />
+  } @else {
+    <p id="fallback">Select a user to see their tasks!</p>
+  }
+</main>
