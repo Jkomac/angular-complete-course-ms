@@ -12,9 +12,7 @@ import { TasksService } from './tasks.service';
 })
 export class TasksComponent {
 
-  // Dependency Injection is used to provide services to components, allowing Angular to create instances of the service through the constructor or using the inject() function.
   constructor(private tasksService: TasksService) {}
-  // private tasksService = inject(TasksService);
 
   @Input({ required: true}) userId!: string;
   @Input({ required: true}) name!: string;

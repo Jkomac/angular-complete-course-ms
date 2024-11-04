@@ -6,16 +6,15 @@ import { DUMMY_USERS } from './dummy-users';
 import { TasksComponent } from "./tasks/tasks.component";
 
 @Component({
-  selector: 'app-root', // Selector to use the component in HTML file
-  standalone: true, // Indicates whether the component is independent (true) or needs to be declared in an Angular module (false)
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent], // Importing those components which are used in this component
-  templateUrl: './app.component.html', // Path to the HTML file to be rendered || HTML code can be written here (inline template) by using `template` instead of `templateUrl`
-  styleUrl: './app.component.css' // Path to the CSS file to be applied || CSS code can be written here (inline style) by using `styles` instead of `styleUrl`
+  selector: 'app-root',
+  standalone: true,
+  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   users = DUMMY_USERS;
-  selectedUserId?: string; // Optional Property (?) is used to make the property optional. If the property is not provided, it will be undefined.
-  // selectedUserId: string | undefined; // Union Type (|) is used to define multiple types for a property.
+  selectedUserId?: string;
 
   // Getter to get the selected user by ID
   get selectedUser(){

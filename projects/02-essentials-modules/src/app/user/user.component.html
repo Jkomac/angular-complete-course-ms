@@ -1,9 +1,8 @@
 <!-- Template that will represent the User Component -->
 
 <app-card>
-  <!-- Class Binding is used to add or remove CSS classes conditionally based on the value of an expression. Adding the 'active' class based on the value of 'selected' property || Surrounded by square brackets [] -->
-  <button [class.active]="selected" (click)="onSelectUser()"> <!-- Event Binding to handle events of the User Component || Surrounded by parentheses () -->
-    <img [src]="imagePath" [alt]="user.name" /> <!-- Property Binding to display information [Avatar of the user] of the User Component || Attributes are surrounded by square brackets [] -->
-    <span>{{ user.name }}</span> <!-- Interpolation to display information [Name of the user] from the User Component || Surrounded by double curly braces {{}} -->
+  <button [class.active]="selected" (click)="onSelectUser()">
+    <img [src]="imagePath" [alt]="user.name" />
+    <span>{{ user.name }}</span>
   </button>
 </app-card>

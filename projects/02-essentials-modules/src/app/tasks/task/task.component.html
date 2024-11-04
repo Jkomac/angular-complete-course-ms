@@ -2,7 +2,6 @@
   <article>
     <h2>{{ task.title }}</h2>
     <time>{{ task.dueDate | date : "fullDate" }}</time>
-    <!-- Pipes (|) are used to transform data in a more readable format. In this case, the date pipe is used to format the property like a full date. (Variable | pipe: 'format') -->
     <p>{{ task.summary }}</p>
     <p class="actions">
       <button (click)="onCompleteTask()">Complete</button>

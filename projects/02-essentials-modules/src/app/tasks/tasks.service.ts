@@ -3,7 +3,7 @@
 import { Injectable } from '@angular/core';
 import { type NewTaskData } from './task/task.model';
 
-@Injectable({providedIn: 'root'}) // The @Injectable() decorator is used to define this class as a service, being provided every time it is requested. {providedIn: 'root'} is used to provide the service at the root level of the application.
+@Injectable({providedIn: 'root'})
 export class TasksService {
   private tasks = [
     {
@@ -33,27 +33,27 @@ export class TasksService {
 
   // Function that automatically executes when the application starts
   constructor() { 
-    const tasks = localStorage.getItem('tasks'); // Retrieve the tasks from the local storage
+    const tasks = localStorage.getItem('tasks');
     
-    if (tasks) { // If tasks are found in the local storage, overwrite the default tasks with the stored tasks
-      this.tasks = JSON.parse(tasks); // JSON.parse() is used to convert the JSON string back to an object since localStorage stores data as strings
+    if (tasks) {
+      this.tasks = JSON.parse(tasks);
     }
   }
 
   // Method to update/save the tasks in the local storage
   private saveTasks() {
-    localStorage.setItem('tasks', JSON.stringify(this.tasks)); // JSON.stringify() is used to convert the object to a JSON string since localStorage stores data as strings
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
   // Method to get the tasks of the selected user (Array of tasks)
   getUserTasks(userId: string) {
-    return this.tasks.filter((task) => task.userId === userId); // filter() is used to return all the tasks that belong to the selected user
+    return this.tasks.filter((task) => task.userId === userId);
   }
 
   // Method to add a new task to the list of tasks
   addTask(taskData: NewTaskData, userId: string) {
-    this.tasks.unshift({ // unshift() is a method to add a new element (task) at the beginning of the arrayList (list of tasks) || Instead, push() adds the new element at the end of the arrayList
-      id: new Date().getTime().toString(), // Example of generating a "unique" ID for the task (not the final version)
+    this.tasks.unshift({
+      id: new Date().getTime().toString(),
       userId: userId,
       title: taskData.title,
       summary: taskData.summary,

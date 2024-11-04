@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core'; // Note: 'Input' and 'Output' start with an uppercase 'I' and 'O'
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { type User } from './user.model';
-import { CardComponent } from "../shared/card/card.component"; // Importing the custom User interface (from the user.model.ts). The 'type' keyword is optional and can be omitted.
+import { CardComponent } from "../shared/card/card.component";
 
 @Component({
   selector: 'app-user',
@@ -11,12 +11,10 @@ import { CardComponent } from "../shared/card/card.component"; // Importing the 
 })
 
 export class UserComponent {
-  // Input decorator to allow the parent component to pass data to this component || Required to ensure the parent component provides a value || Non-null Assertion (!) is used to tell TypeScript that the variable will be initialized later
   @Input({ required: true}) user!: User;
-  @Input({required: true}) selected!: boolean; // Required property to indicate whether the user is selected or not
+  @Input({required: true}) selected!: boolean;
 
-  // Output decorator to allow this component to pass data to the parent component through events
-  @Output() select = new EventEmitter<string>(); // Angle brackets are used as an extra layer of security (optionals) to ensure that the EventEmitter is of type string
+  @Output() select = new EventEmitter<string>();
 
   // Getter to dynamically return the path of the image of the users
   get imagePath() {
