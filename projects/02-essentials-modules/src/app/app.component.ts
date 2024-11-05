@@ -1,14 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
 import { DUMMY_USERS } from './dummy-users';
-import { TasksComponent } from "./tasks/tasks.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, UserComponent, TasksComponent],
+  standalone: false, // If a component is declared in the AppModule, it is not a standalone component. By default, standalone is false, so it can be omitted.
+  // If a component is not standalone, it does not have any imports, so it must be omitted.
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
