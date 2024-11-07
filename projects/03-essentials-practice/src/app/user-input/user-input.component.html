@@ -1,1 +1,23 @@
-<p>user-input works!</p>
+<form>
+    <div class="input-group">
+        <div>
+            <label for="initialInvestment">Initial investment</label> <!-- The label's 'for' and input's 'id' should match to bind them together. If you click on the label, the input will be focused. -->
+            <input type="number" id="initialInvestment" name="initialInvestment" [defaultValue]="0" [(ngModel)]="enteredInitialInvestment"> <!-- The 'name' attribute is necessary for ngModel to work correctly -->
+        </div>
+        <div>
+            <label for="annualInvestment">Annual investment</label>
+            <input type="number" id="annualInvestment" name="annualInvestment" [defaultValue]="0" [(ngModel)]="enteredAnnualInvestment" >
+        </div>
+    </div>
+    <div class="input-group">
+        <div>
+            <label for="expectedReturn">Expected return</label>
+            <input type="number" id='expectedReturn' name="expectedReturn" [defaultValue]="0" [(ngModel)]="enteredExpectedReturn" >
+        </div>
+        <div>
+            <label for="duration" >Duration</label>
+            <input type="number" id="duration" name="duration" [defaultValue]="0" [(ngModel)]="enteredDuration" > 
+        </div>
+    </div>
+    <button type="submit">Calculate</button>
+</form>
