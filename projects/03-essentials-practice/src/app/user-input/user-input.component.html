@@ -2,21 +2,21 @@
     <div class="input-group">
         <div>
             <label for="initial-investment">Initial investment</label> <!-- The label's 'for' and input's 'id' should match to bind them together. If you click on the label, the input will be focused. -->
-            <input id="initial-investment" type="number" name="initialInvestment" [(ngModel)]="enteredInitialInvestment"> <!-- The 'name' attribute is necessary for ngModel to work correctly || Usually written in camelCase -->
+            <input id="initial-investment" type="number" name="initialInvestment" [(ngModel)]="enteredInitialInvestment"/> <!-- The 'name' attribute is necessary for ngModel to work correctly || Usually written in camelCase -->
         </div>
         <div>
             <label for="annual-investment">Annual investment</label>
-            <input id="annual-investment" type="number" name="annualInvestment" [(ngModel)]="enteredAnnualInvestment">
+            <input id="annual-investment" type="number" name="annualInvestment" [(ngModel)]="enteredAnnualInvestment"/>
         </div>
     </div>
     <div class="input-group">
         <div>
             <label for="expected-return">Expected return</label>
-            <input id="expected-return" type="number" name="expectedReturn" [(ngModel)]="enteredExpectedReturn">
+            <input id="expected-return" type="number" name="expectedReturn" [(ngModel)]="enteredExpectedReturn"/>
         </div>
         <div>
             <label for="duration">Duration</label>
-            <input id="duration" type="number" name="duration" [(ngModel)]="enteredDuration">
+            <input id="duration" type="number" name="duration" [(ngModel)]="enteredDuration"/>
         </div>
     </div>
     <button type="submit">Calculate</button>
