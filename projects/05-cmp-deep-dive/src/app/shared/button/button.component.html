@@ -1,0 +1,8 @@
+<span>
+  <ng-content /> <!-- Regular content projection without any filtering, being the default place where the content is projected -->
+</span>
+<span class="icon">
+  <ng-content select="icon"> <!-- The select attribute is used to filter the content that is projected into the component. Format for tags [tag name]; Format for classes, starting with a dot (.) -->
+    → <!-- Content Projection Fallback: default content if no content is projected into the ng-content element -->
+  </ng-content>
+</span>

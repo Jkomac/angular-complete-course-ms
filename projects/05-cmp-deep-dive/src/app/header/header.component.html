@@ -12,9 +12,9 @@
         <a href="/">Management</a>
       </li>
       <li>
-        <button>
-          <span> Logout </span>
-          <span class="icon"> → </span>
+        <button appButton>
+          Logout <!-- Content projected into the ng-content element without any filtering -->
+          <span ngProjectAs="icon">→</span> <!-- ngProjectAs projects the tag <span> as it was the tag <icon> allowing to render the content of the <ng-content select="icon"> -->
         </button>
       </li>
     </ul>
