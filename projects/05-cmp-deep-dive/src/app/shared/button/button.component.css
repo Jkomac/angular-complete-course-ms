@@ -1,0 +1,25 @@
+:host { /* :host is used instead of button, since there is not a button element in the html file (we do have a SPAN element). :host targets the host element and applies the styles (the selector: ej. button[appButton]) */
+    display: inline-block;
+    padding: 0.65rem 1.35rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: #691ebe;
+    color: white;
+    border: none;
+  }
+  
+  :host:hover {
+    background-color: #551b98;
+  }
+  
+  .icon {
+    display: inline-block;
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  :host:hover .icon {
+    transform: translateX(4px);
+  }

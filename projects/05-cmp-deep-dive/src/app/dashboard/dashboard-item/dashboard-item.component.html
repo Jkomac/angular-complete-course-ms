@@ -1,9 +1,8 @@
-<div class="dashboard-item">
-  <article>
-    <header>
-      <img [src]="image().src" [alt]="image().alt" />
-      <h2>{{ title() }}</h2>
-    </header>
-    <ng-content /> <!-- Content Projection using ng-content as a placeholder for the wrapped content. It helps since Angular does not know where to render the content when using custom components. -->
-  </article> 
-</div>
+<article>
+  <header>
+    <img [src]="image().src" [alt]="image().alt" />
+    <h2>{{ title() }}</h2>
+  </header>
+  <ng-content />
+  <!-- Content Projection using ng-content as a placeholder for the wrapped content. It helps since Angular does not know where to render the content when using custom components. -->
+</article>
