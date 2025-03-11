@@ -1,10 +1,31 @@
-@if (currentStatus === 'online') {
-<p>Servers are online</p>
-<p>All systems are operational.</p>
-} @else if (currentStatus === 'offline') {
-<p>Servers are offline</p>
-<p>Functionality should be restored soon.</p>
-} @else {
-<p>Server status is unknown</p>
-<p>Fetching server status failed.</p>
-}
+<!-- Simple Class Binding: Adds the class to the element if the condition is true || [class.className]="condition" where className is the class to be add when condition is true || <div [class.status]="currentStatus === 'online'" > -->
+<!-- Multiple Class Binding: Adds multiple classes (Key) to the element based on different conditions (Value) || [class]="{ className: condition, ... }" || className must be written within simple quotes if contains special characters -->
+<div 
+  [class]="{
+    status: true,
+    'status-online': currentStatus === 'online',
+    'status-offline': currentStatus === 'offline',
+    'status-unknown': currentStatus === 'unknown'
+  }"> 
+  @if (currentStatus === 'online') {
+    <p>Servers are online</p>
+    <p>All systems are operational.</p>
+  } @else if (currentStatus === 'offline') {
+    <p>Servers are offline</p>
+    <p>Functionality should be restored soon.</p>
+  } @else {
+    <p>Server status is unknown</p>
+    <p>Fetching server status failed.</p>
+  }
+</div>
+
+<!-- INLINE STYLE -->
+<!-- Simple Style Binding: Binds an inline style to the element || [style.property]="'value'" where property is the CSS property in camelCase and value is the style value in quotes || <div [style.fontSize]="'64px'" >  -->
+<!-- Multiple Inline Style Binding: Adds multiple styles (Key) to the element. Properties may be written in quotes or camelCase being the structure like: 
+
+[style]="{
+    'font-size': '64px',
+    'font-weight': 'bold' 
+  }"
+
+-->
