@@ -11,7 +11,7 @@ export class ServerStatusComponent {
 
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline'; // Literal Types: Restricts the variable to accept only the specified literal values, providing better type safety and autocompletion ('online', 'offline', or 'unknown')
 
-  constructor(){
+  ngOnInit(){ // Lifecycle hook that is called once after Angular has initialized ALL the component's inputs.
     setInterval(() => { // setInterval: Executes the provided function repeatedly at fixed time intervals (5000 ms, 5s in this case)
       const random = Math.random(); // [0-1)
 
