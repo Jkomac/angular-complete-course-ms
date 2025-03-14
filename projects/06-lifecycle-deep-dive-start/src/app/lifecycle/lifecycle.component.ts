@@ -61,7 +61,7 @@ export class LifecycleComponent
     console.log('ngAfterViewChecked');
   }
 
-  ngOnDestroy() { // Last. 	Runs once before the component is destroyed.
+  ngOnDestroy() { // Last. Runs once before the component is destroyed.
     console.log('ngOnDestroy');
   }
 }
