@@ -7,7 +7,7 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
   templateUrl: './server-status.component.html',
   styleUrl: './server-status.component.css'
 })
-export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy { // Implements OnInit & AfterViewInit to ensure ngOnInit & ngAfterViewInit are called correctly (against any kind of typo) as part of the component's lifecycle
+export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy { // Implements lifecycle hooks to ensure them to be called correctly (against any kind of typo) as part of the component's lifecycle
 
   currentStatus: 'online' | 'offline' | 'unknown' = 'offline'; // Literal Types: Restricts the variable to accept only the specified literal values, providing better type safety and autocompletion ('online', 'offline', or 'unknown')
   private interval?: ReturnType<typeof setInterval>; // The type NodeJs.Timeout represents the ID returned by setInterval (allowing it to be cleared later with clearTimeout)

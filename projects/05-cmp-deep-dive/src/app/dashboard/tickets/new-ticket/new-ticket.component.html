@@ -1,12 +1,12 @@
-<form>
+<form (ngSubmit)="onSubmit(titleInput, textInput)">
   <app-control label="Title">
-    <input id="title" name="title"/>
+    <input id="title" name="title" #titleInput/> <!-- Template Reference Variable: Allows you to reference this element (input) in your component's TypeScript code and access its properties and methods in the DOM. || It must starts with # -->
   </app-control> 
   <app-control label="Request">
-    <textarea id="request" name="request" rows="3"></textarea>
+    <textarea id="request" name="request" rows="3" #textInput></textarea>
   </app-control>
   <p>
-    <button appButton>
+    <button appButton #btn> <!-- Component Instance: References the instance of ButtonComponent because appButton is a CUSTOM directive/component. It does NOT access to the native HTMLButtonElement -->
       Submit
       <span ngProjectAs="icon">⌲</span>
     </button>
