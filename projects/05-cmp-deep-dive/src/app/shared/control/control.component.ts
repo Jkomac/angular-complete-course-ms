@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
+import { Component, contentChild, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -20,9 +20,10 @@ export class ControlComponent {
   // }
   label = input.required<string>();
   private el = inject(ElementRef); // A way to programmatically accesss the Host Element
-
+  private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input'); // @ContentChild: Allows us to access a PROJECTED CONTENT element from the parent component's template || variableName = contentChild<ElementRef<typeOfTemplateVariable>>('templateReferenceVariableWithout#')
   onClick(){
     console.log('Clicked!');
     console.log(this.el);
+    console.log(this.control());
   }
 }
