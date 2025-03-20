@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChanges, afterRender, afterNextRender} from '@angular/core';
 
 @Component({
   selector: 'app-lifecycle',
@@ -22,6 +22,15 @@ export class LifecycleComponent
 
   constructor() { // 1st. Runs when Angular instantiates the component.
     console.log('CONSTRUCTOR');
+
+    /* SPECIAL LIFECYCLES INSIDE THE CONSTRUCTOR */
+    afterRender(() => { // 	Runs every time anything changes in the entire Angular App
+      console.log('afterRender');
+    });
+
+    afterNextRender(() => { // Runs after the next change anywhere in the entire Angular App
+      console.log('afterNextRender');
+    });
   }
 
   // LIFECYCLE HOOKS
