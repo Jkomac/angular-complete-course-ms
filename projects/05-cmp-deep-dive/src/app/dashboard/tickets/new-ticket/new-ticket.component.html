@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(titleInput, textInput)">
+<form (ngSubmit)="onSubmit(titleInput, textInput)" #form>
   <app-control label="Title">
     <input id="title" name="title" #titleInput/> <!-- Template Reference Variable: Allows you to reference this element (input) in your component's TypeScript code and access its properties and methods in the DOM. || It must starts with # -->
   </app-control> 
