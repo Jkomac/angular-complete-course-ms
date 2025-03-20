@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Component, effect, OnDestroy, OnInit, signal } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -9,8 +9,15 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 })
 export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy { // Implements lifecycle hooks to ensure them to be called correctly (against any kind of typo) as part of the component's lifecycle
 
-  currentStatus: 'online' | 'offline' | 'unknown' = 'offline'; // Literal Types: Restricts the variable to accept only the specified literal values, providing better type safety and autocompletion ('online', 'offline', or 'unknown')
+  currentStatus = signal<'online' | 'offline' | 'unknown'>('offline'); // Literal Types: Restricts the variable to accept only the specified literal values, providing better type safety and autocompletion ('online', 'offline', or 'unknown')
   private interval?: ReturnType<typeof setInterval>; // The type NodeJs.Timeout represents the ID returned by setInterval (allowing it to be cleared later with clearTimeout)
+
+  constructor(){
+
+    effect(() => { // effect(): This function runs whenever the value of the signal inside the callback changes
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit(){ // Lifecycle hook that is called once after Angular has initialized ALL the component's inputs.
     console.log('ON INIT');
@@ -18,11 +25,11 @@ export class ServerStatusComponent implements OnInit, AfterViewInit, OnDestroy {
       const random = Math.random(); // [0-1)
 
       if (random < 0.5){
-        this.currentStatus = 'online';
+        this.currentStatus.set('online');
       } else if(random < 0.9){
-        this.currentStatus = 'offline'
+        this.currentStatus.set('offline');
       } else {
-        this.currentStatus = 'unknown'
+        this.currentStatus.set('unknown');
       }
     }, 5000); 
   }
